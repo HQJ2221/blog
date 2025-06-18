@@ -36,5 +36,8 @@
     "hexo-theme-next": "^8.20.0",
     "hexo-theme-yun": "^1.10.11",
     "live2d-widget-model-tororo": "^1.0.5"
+  },
+  "scripts": {
+    "build": "hexo generate"
   }
 }
