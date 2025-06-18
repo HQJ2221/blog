@@ -489,11 +489,11 @@ Two Rpoperties :
     </tr>
 </table>
 
-{%cq%}
+
 $$
 \hat w_i^{\text{lasso}} = (|\hat w^{OLS}_i| − \lambda)+\text{sign}(\hat w^{OLS}_i)
 $$
-{%endcq%}
+
 
 - Solving LASSO by **LARS** (最小角回归算法)
 	1. Start with all coefficients $w_i$ equal to zero
@@ -643,11 +643,11 @@ $$
 - Assume $f_k (\textbf{x})$ is multivariate Gaussian (多元高斯分布) : $f_k(x)=\large{\frac{1}{(2\pi)^{p/2} |\Sigma_k}^{1/2}|e^{\frac{1}{2}(x-\mu_k)^T\Sigma_k^{-1}(x-\mu_k)}}$ , with a common covariance matrix (协方差矩阵) $\Sigma_k$ <font color=grey>(注：多元高斯可以表示为向量和矩阵乘积的形式，如上)</font>
 - For the decision boundary between class $k$ and $l$, the **log-ratio** of their posteriors (后验) $P(Y|X)$ is
 
-{%cq%}
+
 $$
 \log{\frac{P(Y=k|\textbf{X}=\textbf{x})}{P(Y=l|\textbf{X}=\textbf{x})}}=\log{\frac{\pi_k}{\pi_l}}-\frac{1}{2}(\mu_k+\mu_l)^T\Sigma_k^{-1}(\mu_k-\mu_l)+\textbf{x}^T \Sigma^{-1}(\mu_k-\mu_l)
 $$
-{%endcq%}
+
 
 1. From log-ratio, we can get <font color=red>Linear discriminant functions</font>(e.g. for class $k$) : $\delta_k(\textbf{x})=\textbf{x}^T\Sigma^{-1}\mu_k-\frac{1}{2}\mu_k^T\Sigma^{-1}\mu_k+\log\pi_k$ 
 
@@ -663,11 +663,11 @@ $$
 
 - LDA rule classifies to **class 2** if
 
-{%cq%}
+
 $$
 (\textbf{x}-\frac{\hat\mu_1+\hat\mu_2}{2})^T \Sigma^{-1}(\hat\mu_2-\hat\mu_1)+\log{\frac{\hat\pi_2}{\hat\pi_1}}\gt 0
 $$
-{%endcq%}
+
 
 - Discriminant direction : $\beta=\Sigma^{-1}(\hat\mu_2-\hat\mu_1)$ 
 
@@ -715,11 +715,11 @@ $$
 
 > Find $\textbf{W}=\{w^{(0)},w^{(1)},...,w^{(n)}\}$ with lowest loss function
 
-{%cq%}
+
 $$
 \textbf{W}^{\ast}=\underset{\textbf{W}} {\arg\min} \frac{1}{n}\sum_{i=1}^{n}L(f(x^{(i)};\textbf{W}),y^{(i)})=\underset{\textbf{W}} {\arg\min}\ C(\textbf{W})
 $$
-{%endcq%}
+
 
 - But for most cases, we should calculate <font color=red>gradient</font> to find $\textbf{W}^{\ast}$ 
 - <font color=red>Use <b>gradient decent</b> to solve:</font> $\frac{\partial{C}}{\partial{\textbf{W}}}$
@@ -796,14 +796,14 @@ $$
 - Plug into $L$: $L(\textbf{w}^\ast,b^\ast,\alpha)=\sum_i\alpha_i-\frac{1}{2}\sum_i\sum_j\alpha_i\alpha_jy_iy_j(\textbf{x}_i^T \textbf{x}_j)$ 
 - <font color=red>Dual Optimization: </font>
 
-{%cq%}
+
 $$
 \begin{align}
 &\min_\alpha\frac{1}{2}\sum_i\sum_j\alpha_i\alpha_jy_iy_j(\textbf{x}_i^T \textbf{x}_j)-\sum_i\alpha_i, \\
 &\text{s.t. }\alpha_i\ge0,\ i=1,...,n,\ \sum_i\alpha_iy_i=0
 \end{align}
 $$
-{%endcq%}
+
 
 
 
@@ -813,7 +813,7 @@ $$
 
 - Three more conditions from the equivalence of primal and minimax problems
 
-{%cq%}
+
 $$
 \left\{ \begin{array}{l}
 \alpha_i^{\ast}\ge 0\\
@@ -821,7 +821,7 @@ y_i((\textbf{w}^{\ast})^T \textbf{x}_i+b^{\ast})-1 \ge 0\\
 \alpha_i^{\ast}[y_i((\textbf{w}^{\ast})^T \textbf{x}_i+b^{\ast})-1]=0
 \end{array}\right.
 $$
-{%endcq%}
+
 
 - These together with two zero derivative conditions form KKT conditions
 - $\alpha_i^{\ast}\gt 0 \Rightarrow y_i((\textbf{w}^{\ast})^T \textbf{x}_i+b^{\ast})=1$
@@ -829,11 +829,11 @@ $$
 - $b=y_s-\textbf{w}^T\textbf{x}_s=y_s-\sum_{i\in S}\alpha_i y_i \textbf{x}^T_i\textbf{x}_s$
 - More stable solution : 
 
-{%cq%}
+
 $$
 \color{red} b=\frac{1}{|S|}\sum_{s\in S}\left(y_s-\sum_{i\in S}\alpha_i y_i \textbf{x}^T_i\textbf{x}_s\right)
 $$
-{%endcq%}
+
 
 
 
@@ -843,25 +843,25 @@ $$
 - Relax constraint to $y_i(\textbf{w}^T\textbf{x} + b) \ge 1-\xi_i$ 
 - Primal problem :
 
-{%cq%}
+
 $$
 \begin{align}
 &\underset{\textbf{w}, b} \min \frac{1}{2}\|\textbf{w}\|_2^2+C\sum_{i=1}^{n}\xi_i\\
 &\text{s.t. }y_i(\textbf{w}^T\textbf{x} + b)\ge 1-\xi_i,\ \xi_i \ge 0,\ i=1,...,n
 \end{align}
 $$
-{%endcq%}
+
 
 - Similar derivation to dual problem : (Difference: add the error coe $C$ as a bound)
 
-{%cq%}
+
 $$
 \begin{align}
 &\min_{\alpha}\frac{1}{2}\sum_i \sum_j \alpha_i \alpha_j y_i y_j (\textbf{x}_i^T \textbf{x}_j)-\sum_i \alpha_i \\
 &\text{s.t. }0\le \alpha_i \le C,\ i=1,...,n,\ \sum_i\alpha_iy_i=0
 \end{align}
 $$
-{%endcq%}
+
 
 
 
