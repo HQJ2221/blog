@@ -129,7 +129,7 @@ $$
     - Cubic Spline Basis
     - Trees
     - Eigenfunctions in reproducing kernel Hilbert space (RKHS)
-- **Parameter fitting** : $\underset{\{ \beta_m,\gamma_m\}} \min \sum_{i=1}^{N} L(y_i,\sum_{m=1}^{M}\beta_m b(x_i;\gamma_m))$
+- **Parameter fitting** : $\underset{\{ \beta_{m},\gamma_{m}\}} \min \sum_{i=1}^{N} L(y_i,\sum_{m=1}^{M}\beta_{m} b(x_i;\gamma_{m}))$
 - Loss function : <font color=red>squared error</font> $\color{red}L(y, f (x)) = (y − f (x))^2$ or likelihood-based loss
 
 
