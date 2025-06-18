@@ -130,7 +130,7 @@ $$
     - Trees
     - Eigenfunctions in reproducing kernel Hilbert space (RKHS)
 - **Parameter fitting** : $\underset{\{ \beta_m,\gamma_m\}} \min \sum_{i=1}^{N} L(y_i,\sum_{m=1}^{M}\beta_m b(x_i;\gamma_m))$
-- Loss function : <font color=red>squared error $L(y, f (x)) = (y − f (x))^2$</font> or likelihood-based loss
+- Loss function : <font color=red>squared error</font> $\color{red}L(y, f (x)) = (y − f (x))^2$ or likelihood-based loss
 
 
 
