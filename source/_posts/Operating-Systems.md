@@ -1729,11 +1729,11 @@ a case:
 
 ### Effective Access Time (EAT)
 
-{%cq%}
-$
+
+$$
 EAT=\text{ Hit Rate }\times \text{ Hit Time }+ \text{ Miss Rate }\times \text{ Miss Penalty }
-$
-{%endcq%}
+$$
+
 
 **Three types of Cache Misses**
 

@@ -46,13 +46,13 @@ description: >-
 - In bagging, we use the same model to train different sample set in each iteration ; assume the models $\{\hat f_m(x)\}_{m=1}^{M}$ have the <font color=red>same variance</font> $\sigma^2 (x)$, while the <font color=red>correlation</font> of each pair is $\rho(x)$ 
 - Then the variance of the final model is :
 
-{%cq%}
-$
+
+$$
 \begin{array}{l}
 \text{Var}(\hat{f}_{bag}(x)) &= \frac{1}{M^2}\left(\sum_{m=1}^{M}\text{Var}(\hat{f}_m(x)) + \sum_{t\neq m}\text{Cov}(\hat{f}_t(x)\hat{f}_m(x))\right) \\ &= \rho(x)\sigma^2(x) + \frac{1-\rho(x)}{M}\sigma^2(x) 
 \end{array}
-$
-{%endcq%}
+$$
+
 
 - As $M\to\infty$ , $\text{Var}(\hat f_{bag}(x))\to \rho(x)\sigma^2(x)$ . This usually <font color=red>reduces the variance</font>.
 - If $\rho(x)=0$ , the variance approach zero.
@@ -158,11 +158,11 @@ $
 
 Squared error loss in step 2.1:
 
-{%cq%}
-$
+
+$$
 L(y_i,f_{m-1}(x_i)+\beta b(x_i;\gamma))=\underbrace{(y_i-f_{m-1}(x_i))}_{\text{residual}}-\beta b(x_i;\gamma)^2
-$
-{%endcq%}
+$$
+
 
 > What if we use Exponential loss in step 2.1 ?
 
@@ -170,26 +170,26 @@ $
 - <font color=blue>Classifier</font> as basis function : $b(x; \gamma) = G(x) \in \{−1, 1\}$
 - Let $w_i^{(m)}=\exp(-y_i f_{m-1}(x_i))$ , then step 2.1 turn to be :
 
-{%cq%}
-$
+
+$$
 \begin{align}{l}
 (\beta_m, G_m) &= \arg \min_{\beta, G} \sum_{i=1}^{n} w_i^{(m)} \exp(-\beta y_i G(x_i))\\
 &=\arg \min_{\beta, G} \left[ \sum_{y_i \neq G(x_i)} w_i^{(m)} (e^{\beta} - e^{-\beta}) + e^{-\beta} \sum_{i=1}^{n} w_i^{(m)} \right]
 \end {align}
-$
-{%endcq%}
+$$
+
 
 - We get $\beta_m$ and $G_m$ separately :
 
-{%cq%}
-$
+
+$$
 \begin{align}{l}
 G_m &= \arg \min_G \sum_{i=1}^{n} w_i^{(m)} I(y_i \neq G(x_i)) \\
 \beta_m &= \arg \min_{\beta} \left[ \epsilon_m (e^{\beta} - e^{-\beta}) + e^{-\beta} \right] = \frac{1}{2} \log \frac{1-\epsilon_m}{\epsilon_m} \\
 \epsilon_m &= \left(\left(\sum_{i=1}^{n} w_i^{(m)} I(y_i \neq G(x_i))\right) \left/\right. \sum_{i=1}^{n} w_i^{(m)}\right)
 \end{align}
-$
-{%endcq%}
+$$
+
 
 where $\epsilon_m$ is weighted error rate.
 
@@ -220,13 +220,13 @@ where $\epsilon_m$ is weighted error rate.
 - Parameter set $\Theta = \{R_j, \gamma_j\}_{j=1}^{J}$ 
 - Parameter finding : minimizing the empirical risk 
 
-{%cq%}
-$
+
+$$
 \begin{array}{rl}
 &\hat{\Theta} = \arg \min_{\Theta} \sum_{j=1}^{J} \sum_{x_i \in R_j} L(y_i, \gamma_j) \qquad &\text{Combinatorial optimization}
 \end{array}
-$
-{%endcq%}
+$$
+
 
 - Approximate suboptimal solutions : 
 	1. Finding $\gamma_j$ given $R_j$ : $\gamma_j = \bar{y}_j = \frac{1}{|R_j|} \sum_{y_i \in R_j} y_i$   for $L^2$ loss ; and  $\gamma_j =$ modal class in $R_j$   for misclassification loss 
@@ -241,11 +241,11 @@ $
 - Two-class classification and exponential loss : AdaBoost for trees, 
     - $\hat{\Theta}_m = \arg \min_{\Theta_m} \sum_{i=1}^{N} w_i^{(m)} \exp[-y_i T(x_i; \Theta_m)]$
 
-{%cq%}
-$
+
+$$
 \hat{\gamma}_{jm} = \log \Large\frac{\sum_{x_i \in R_{jm}} w_i^{(m)} l(y_i = 1)}{\sum_{x_i \in R_{jm}} w_i^{(m)} l(y_i = -1)}
-$
-{%endcq%}
+$$
+
 
 - Absolute error or the Huber loss : robust but slow
 
@@ -253,11 +253,11 @@ $
 
 - Supervised learning is equivalent to the optimization problem
 
-{%cq%}
-$
+
+$$
 \min_{f}L(f)=\min_{f}\sum_{i=1}^{N}L(y_i,f(x_i))
-$
-{%endcq%}
+$$
+
 
 - Numberical optimization : $\hat{\textbf{f}}=\arg\min_{\textbf{f}}L(\textbf{f})$  where  $\textbf{f}=\{f(x_1),f(x_2),\cdots,f(x_N)\}$ 
 - Appriximate $\hat{\textbf{f}}$ by $\textbf{f}_M=\sum_{m=0}^{M} \textbf{h}_m$ , where $\textbf{f}_0=\textbf{h}_0$ is <font color=red>the initial guess</font>.
@@ -268,11 +268,11 @@ $
 >
 > - Find a Tree $T(x;\Theta_m)$ by minimization problem :
 
-{%cq%}
-$
+
+$$
 \tilde{\Theta}_m=\arg\min_{\Theta_m}\sum_{i=1}^{N}(-g_{im}-T(x_i;\Theta_m))^2
-$
-{%endcq%}
+$$
+
 
 > In general, $\tilde{R}_{jm}\not=R_{jm}$ 
 
@@ -410,11 +410,11 @@ $
 
 **Def.** Total purity defined as 
 
-{%cq%}
-$
+
+$$
 \text{Purity}\triangleq \sum_i \frac{n_i}{n}p_i=\sum_i\frac{n_i}{n}(\max_j p_{ij})
-$
-{%endcq%}
+$$
+
 
 E.g. $\text{purity}=\frac{6}{17}\cdot \frac{4}{6}+\frac{6}{17}\cdot\frac{5}{6}+\frac{5}{17}\cdot\frac{3}{5}=0.71$ 
 

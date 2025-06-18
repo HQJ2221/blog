@@ -21,14 +21,14 @@ date: 2024-06-22 21:59:45
 
 **Def.** Suppose $\vec\alpha_1,\vec\alpha_2,\cdots, \vec\alpha_e$ are finite vector from <font color=red>linear space</font> $\textbf{V}$. If any vector from $\textbf{V}$ can be represented as $\vec\alpha = k_1\vec\alpha_1+k_2\vec\alpha_2+\cdots + k_e \vec\alpha_e$ , we say that $\vec\alpha$ can be linearly represented by vector group $\{\vec\alpha_1,\vec\alpha_2,\cdots, \vec\alpha_e\}$ , or $\alpha$ is a Linear Combination of $\{\vec\alpha_1,\vec\alpha_2,\cdots, \vec\alpha_e\}$. 
 
-{% cq %}
-$
+
+$$
 \begin{align}
 &\text{Set }A=\{\vec\alpha_1,\vec\alpha_2,\cdots, \vec\alpha_e\}\\
 &V=\text{Span}(A)=\{k_1\vec\alpha_1+k_2\vec\alpha_2+\cdots + k_e \vec\alpha_e | k_i\in \mathbb R, 1\le i\le e\}
 \end{align}
-$
-{% endcq %}
+$$
+
 
 
 > In a **matrix** (i.e. $A$), set all rows as a vector group, and it span a space called **Row Space** (Noted: $R(A)$). All columns span a space called **Column Space** (Noted: $\text{Col}(A)$).
@@ -326,13 +326,13 @@ Maths method about Unsupervised Learning
 
 <font color=blue>1 .  Minkowski distance (闵可夫斯基距离)</font>
 
-{% cq %}
-$
+
+$$
 \begin{align}
 &\text d(\textbf{x}_i,\textbf{x}_j)=\sqrt[h]{\sum_{k=1}^{p}|\text x_{ik}-\text x_{jk}|^h}&
 \end{align}
-$
-{% endcq %}
+$$
+
 
 
 > Parameter `h` is to <font color=blue>emphasize the character of the data</font>. By changing the value of `h` , Minkowski distance can cover many Distance Metrics.
@@ -345,11 +345,11 @@ $
 > Minkowski distance where $h = 1$
 
 
-{% cq %}
-$
+
+$$
 \text d(\textbf{x}_i,\textbf{x}_j)=\sum_{k=1}^{p}|\text x_{ik}-\text x_{jk}|
-$
-{% endcq %}
+$$
+
 
 
 
@@ -357,29 +357,29 @@ $
 
 > Minkowski distance where $h = 2$ 
 
-{% cq %}
-$
+
+$$
 \text d(\textbf{x}_i,\textbf{x}_j)=\sqrt{\sum_{k=1}^{p}(\text x_{ik}-\text x_{jk})^2}
-$
-{% endcq %}
+$$
+
 
 <font color=blue>4 .  Supremum distance (or Chebyshev distance, 切比雪夫距离)</font>
 
 > Minkowski distance where $h \to \infty$ 
 
-{% cq %}
-$
+
+$$
 \text d(\textbf{x}_i,\textbf{x}_j)=\max_{k=1}^{p}|\text x_{ik}-\text x_{jk}|
-$
-{% endcq %}
+$$
+
 
 <a name="cosine distance"><font color=blue>5 .  Cosine distance (余弦距离)</font></a> 
 
-{% cq %}
-$
+
+$$
 \cos(\textbf{x}_i,\textbf{x}_j)=\frac{\sum_{k=1}^{p}\text x_{ik}\text x_{jk}}{\sqrt{\sum_{k=1}^{p}\text x_{ik}^2}\sqrt{\sum_{k=1}^{p}\text x_{ik}^2}}=\frac{\textbf{x}_i\cdot\textbf{x}_j}{\left\|\textbf{x}_i\right\|\left\|\textbf{x}_j\right\|}
-$
-{% endcq %}
+$$
+
 
 
 
@@ -389,11 +389,11 @@ $
 - For [ordinal data](#ordinal), mapping the data to numerical data : $X=\{x_{(1)}, x_{(2)},..., x_{(n)}\}, x_{(i)} \mapsto \frac{i−1} {n−1}\in [0, 1]$ 
 - For mixed type, use weighed distance (加权) with prescribed weights :
 
-{% cq %}
-$
+
+$$
 \text d(\textbf{x}_i,\textbf{x}_j)=\frac{\sum_{g=1}^{G}w_{ij}^{(g)}\text d_{ij}^{(g)}}{\sum_{g=1}^{G}w_{ij}^{(g)}}
-$
-{% endcq %}
+$$
+
 
 ### Data Preprocessing (Lecture)
 

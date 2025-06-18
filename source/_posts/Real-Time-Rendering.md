@@ -34,11 +34,11 @@ date: 2024-6-27 14:57:57
 
 Use trigonometry(三角几何) to find **projection** of 3D point at $(x, y, z)$
 
-{%cq%}
-$
+
+$$
 x_p=-dx/z\ \ \ \ y_p=-dy/z\ \ \ \ z_p=-d
-$
-{%endcq%}
+$$
+
 
 **Synthetic Camera Model (合成相机模型)**
 
@@ -493,9 +493,9 @@ int main(int argc, char **argv)
 
 - - OpenGL uses a hidden-surface removal method called the z-buffer algorithm that saves depth information as objects are rendered so that only the front objects appear in the image.
 
-{%cq%}
+
 **Using the z-buffer Algorithm**
-{%endcq%}
+
 
 Requested in `main()`
 
@@ -516,9 +516,9 @@ glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 ```
 
 
-{%cq%}
+
 **Surface vs. Volume Subdivision**
-{%endcq%}
+
 
 - In our example, we subdivided the **surface** of each face
 - We could also subdivide the volume using the same midpoints
@@ -633,11 +633,11 @@ void myidle() {
 
 <div align="center"><img src="rtr12.png" alt="position" style="zoom:50%"></div>
 
-{%cq%}
-$
+
+$$
 y_{\text{OpenGL}}= h-1-y_{text{win}}
-$
-{%endcq%}
+$$
+
 
 <font color=blue>E.g. To draw a square when mouse click</font>
 
@@ -782,11 +782,11 @@ void mymenu(int id)
 
 **Def.** A <font color=red>frame</font> is a system with a single point(origin $P_0$) and a basis vector <font color=blue>in an affine space</font>.
 
-{%cq%}
-$
+
+$$
 P=P_0 + \beta_1 v_1 + \beta_2 v_2 + \cdots + \beta_n v_n
-$
-{%endcq%}
+$$
+
 
 ### Homogeneous Coordinates
 
@@ -796,21 +796,21 @@ E.g. for a 3 \* 3 space, the 3 \* 3 matrices cannot used for translation(平移)
 - and a $4\times 4$ matrix can represent translation, rotation and scaling and shear
 - using matrix(a template) below, we can maintain $w=0$ for vectors and $w=1$ for points for <font color=red>orthographic viewing</font> .
 
-{%cq%}
-$
+
+$$
 \left( \begin{array}{c}
 a & b & c & tx \\
 d & e & f & ty \\
 g & h & i & tz \\
 0 & 0 & 0 & 1
 \end{array}\right)
-$
-{%endcq%}
+$$
+
 
 <font color=blue>E.g. For a 3D point $(x,y,z)$ , its homogeneous coordinate is $P_h = (x,y,z,1)$ . To translate it, we define a matrix:</font>
 
-{%cq%}
-$
+
+$$
 \left( \begin{array}{c}
 1 & 0 & 0 & tx \\
 0 & 1 & 0 & ty \\
@@ -823,8 +823,8 @@ x \\ y \\ z \\ 1
 \left( \begin{array}{c}
 x+ tx \\ y+ ty \\ z+ tz \\  1
 \end{array}\right)
-$
-{%endcq%}
+$$
+
 
 - More generally, homogeneous coordinates are represented as $p=[ wx,wy,wz,w ]^T$
 
@@ -859,11 +859,11 @@ Rotation About a Fixed Point Other than the Origin:
 2. Rotate
 3. Move fixed point back
 
-{%cq%}
-$
+
+$$
 \textbf{M}=\textbf{T}(p_f)\textbf{R}(\theta)\textbf{T}(-p_f)
-$
-{%endcq%}
+$$
+
 
 (bu)
 
@@ -938,27 +938,27 @@ glLookAt( eyex, eyey, eyez,
 
 - 通过 eye 和 at 求出前向量
 
-{%cq%}
-$
+
+$$
 \text{forward}=\frac{\text{at} - \text{eye}}{|\text{at} - \text{eye}|}
-$
-{%endcq%}
+$$
+
 
 - 通过 forward 和 up 求出右向量
 
-{%cq%}
-$
+
+$$
 \text{side}=\frac{\text{forward} \times \text{up}}{|\text{forward} \times \text{up}|}
-$
-{%endcq%}
+$$
+
 
 - 然后就能得到修正后的上向量
 
-{%cq%}
-$
+
+$$
 \text{up'}= \text{forward} \times \text{side}
-$
-{%endcq%}
+$$
+
 
 - 求出三个向量后就能确定 camera 的位置和 pose 了
 
@@ -966,8 +966,8 @@ $
 
 - Suppose the camera has been moved to the location $[e_x, e_y, e_z]^T$, and its $x_c$, $y_c$, $z_c$ axes are the unit vectors $\textbf{u}$, $\textbf{v}$, $\textbf{n}$, respectively, then
 
-{%cq%}
-$
+
+$$
 \textbf{M}_{\text{view}}=
 \left[ \begin{array}{c}
 u_x & u_y & u_z & 0 \\
@@ -982,8 +982,8 @@ n_x & n_y & n_z & 0 \\
 0 & 0 & 1 & -e_z \\
 0 & 0 & 0 & 1
 \end{array}\right]
-$
-{%endcq%}
+$$
+
 
 ▪ Note that $[e_x, e_y, e_z]^T$ and $\textbf{u}$, $\textbf{v}$, $\textbf{n}$ are all specified with respect to the world frame
 
@@ -1026,16 +1026,16 @@ $
 - Center of projection at the origin
 - Projection plane is $z = d$, $d < 0$
 
-{%cq%}
-$
+
+$$
 x_p=\frac{x}{z/d}\ \ \ \ y_p=\frac{y}{z/d}\ \ \ \ z_p=d
-$
-{%endcq%}
+$$
+
 
 - Consider $p=Mq$ where
 
-{%cq%}
-$
+
+$$
 p=
 \left[ \begin{array}{c}
 x \\ y \\ z \\ z/d
@@ -1049,8 +1049,8 @@ x \\ y \\ z \\ z/d
 \left[ \begin{array}{c}
 x \\ y \\ z \\ 1
 \end{array}\right]
-$
-{%endcq%}
+$$
+
 
 - If we scale $p$ , then we get the projection point on plane $z=d$ .
 
@@ -1178,14 +1178,14 @@ E.g. Suppose a line $AB$ with endpoints $A$ and $B$ .
 - $d_\text{lower} = y-y_k$
 - $d_\text{upper}=(y_k+1)-y$
 
-{%cq%}
-$
+
+$$
 \begin{align}
 p_k&=\Delta x(d_\text{lower} - d_\text{upper}) \\
 &=2x_k \Delta y - 2y_k \Delta x + c
 \end{align}
-$
-{%endcq%}
+$$
+
 
 where $c=2\Delta y + \Delta x (2b - 1)$ is an <font color=red>integer constant</font> .
 
@@ -1263,11 +1263,11 @@ where $c=2\Delta y + \Delta x (2b - 1)$ is an <font color=red>integer constant</
 
 ## Phong Illumination Equation
 
-{%cq%}
-$
+
+$$
 I_{\text{Phong}}=k_a i_a + \sum_{m \in \text{lights}} \left(k_d (\textbf{L}_m \cdot \textbf{N}) i_{m,d} + k_s (\textbf{R}_m \cdot \textbf{V})^{\alpha} i_{m,s}  \right)
-$
-{%endcq%}
+$$
+
 
 where :
 
@@ -1609,11 +1609,11 @@ renderScene();
 
 
 
-{%cq%}
-$
+
+$$
 p_L=B \cdot P_L \cdot V_L \cdot M \cdot p_M
-$
-{%endcq%}
+$$
+
 
 
 
@@ -1716,14 +1716,14 @@ For every pixel
 
 ### Whitted-style(Recursive) Ray Tracing
 
-{%cq%}
-$
+
+$$
 \begin{align}
 &\textbf{I}= \textbf{I}_{\text{local}}+k_{\text{rg}} \textbf{I}_{\text{reflected}}+k_{\text{tg}} \textbf{I}_{\text{transmitted}} \\
 \text{where }&\textbf{I}_{\text{local}}= \textbf{I}_{a}k_a+ \color{red}k_{\text{shadow}}\color{black}\textbf{I}_{\text{source}}\left[ k_d(\textbf{N} \cdot \textbf{L}) + k_r (\textbf{R} \cdot \textbf{V})^n + k_t (\textbf{T} \cdot \textbf{V})^m \right]
 \end{align}
-$
-{%endcq%}
+$$
+
 
 
 

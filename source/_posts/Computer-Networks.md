@@ -88,11 +88,11 @@ Host sending function:
 
 <img src="cn3.png" style="zoom:80%">
 
-{%cq%}
-$
+
+$$
 \text{packet transmission delay}=\frac{L\text{(bits)}}{R\text{(bits/sec)}}
-$
-{%endcq%}
+$$
+
 
 
 
@@ -254,11 +254,11 @@ An example to calculate delay in **Circuit Switching**:
 
 **Nodal Delay**
 
-{%cq%}
-$
+
+$$
 d_{\text{nodal}}=d_{\text{proc}}+d_{\text{queue}}+d_{\text{trans}}+d_{\text{prop}}
-$
-{%endcq%}
+$$
+
 
 - $d_{\text{proc}}$ : nodal processing
     - check bit errors
@@ -305,11 +305,11 @@ $
 
 **End-to-end Delay**
 
-{%cq%}
-$
+
+$$
 d_{\text{end-end}}=N(d_{\text{proc}}+d_{\text{trans}}+d_{\text{prop}})
-$
-{%endcq%}
+$$
+
 
 <p align="center">What do "real" Internet delay & loss look like?</p>
 
@@ -595,17 +595,17 @@ Comparison:
 > **Conception.** RTT(round-trip-time) is time for a small packet to travel from client to server and back (一个来回)
 
 - For persistent HTTP, time from init TCP conn to, e.g., $n$ times files received is : 
-{%cq%}
-$
+
+$$
 \text{Time}=1\text{RTT}+n\times\text{RTT}
-$
-{%endcq%}
+$$
+
 - For non-persistent HTTP, is :
-{%cq%}
-$
+
+$$
 \text{Time} = 2\times \text{RTT}
-$
-{%endcq%}
+$$
+
 
 #### Messages
 
@@ -941,11 +941,11 @@ Comparison with HTTP :
 
 **Properties.** DNS is a distributed database storing <font color=red>resource records</font> (RR).
 
-{%cq%}
-$
+
+$$
 \text{RR format}=\text{(name, value, type, TTL)}
-$
-{%endcq%}
+$$
+
 
 - <font color=red>type = A</font>
 	- `name` is hostname
@@ -1025,11 +1025,11 @@ Question: How much time to distribute file (size F) from one server to N peers?
 - Suppose $u_s$ is server upload capacity, $d_i$ is download capacity of peer $i$
 - Time to distribute file to all peers $D_{C-S}$ is :
 
-{%cq%}
-$
+
+$$
 D_{C-S}\ge \max{NF/u_s, F/d_{\text{min}}}
-$
-{%endcq%}
+$$
+
 
 
 - So the $D$ increases linearly in $N$
@@ -1040,11 +1040,11 @@ $
 - Server must upload at least one copy ($F/u_s$)
 - time $D_{P2P}$ is :
 
-{%cq%}
-$
+
+$$
 D_{P2P}\ge \max{F/d_{min}, F/u_s, NF/(u_s+\sum{u_i})}
-$
-{%endcq%}
+$$
+
 
 
 
@@ -1609,11 +1609,11 @@ clientSocket.close()  # client leave first
 - Sample RTT: measure time from segment transmission until ACK receipt (**ignore retransmissions**)
 - But it maybe vary. 👉 average several *recent* measurements, not just <font color=red>current SampleRTT</font>.
 
-{%cq%}
-$
+
+$$
 \text{EstimatedRTT}=(1-\alpha)\times \text{EstimatedRTT}+\alpha \times \text{SampleRTT}
-$
-{%endcq%}
+$$
+
 
 <img src="cn68.png" style="zoom:60%">
 
@@ -1621,14 +1621,14 @@ $
 
 - Also we need an interval for the toleration of the variability of RTT (typically $\beta=0.25$)
 
-{%cq%}
-$
+
+$$
 \begin{array}{c}
 \text{DevRTT}=(1-\beta)\times\text{DevRTT}+\alpha \times | \text{SampleRTT} - \text{EstimatedRTT} | \\
 \text{TimeoutInterval}=\text{EstimatedRTT} + 4 \times \text{DevRTT}
 \end{array}
-$
-{%endcq%}
+$$
+
 
 
 

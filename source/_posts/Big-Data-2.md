@@ -99,15 +99,15 @@ $$
 
 
 
-{% cq %}
-$
+
+$$
 \begin{align}
 \epsilon=\sum_{c=1}^{C}p_c(x)(1-p_c(z))\overset{\delta\to 0}{\longrightarrow}&1-\sum_{c=1}^{C}p_{c}^{2}(x) \\
 \le\ &1-p_{c^\ast}^{2}(x) \\
 \le\ &2(1-p_{c^\ast}(x))
 \end{align}
-$
-{% endcq %}
+$$
+
 
 
 
@@ -208,11 +208,11 @@ KNeighborsClassifier(n_neighbors = 10, metric = 'minkowski', p = 2)
 2. Assume conditional independency of $X_1, \cdots, X_d$ given $Y = c$ : $P(X=x|Y=c)=\prod_{i=1}^{d}P(X_i=x_i|Y=c)$
 3. <font color=red>Naive Bayes Model :</font>
 
-{% cq %}
-$
+
+$$
 \color{red}\hat y =\arg \max_c P(Y=c)\prod_{i=1}^{d}P(X_i=x_i|Y=c)
-$
-{% endcq %}
+$$
+
 
 
 
@@ -261,14 +261,14 @@ $
 > 
 > We use an example to explain how to quantified it.
 
-{% cq %}
-$
+
+$$
 \begin{align}
 &\text{Cohen's Kappa Coefficient: }& &\kappa=\frac{p_o-p_e}{1-p_e}=1-\frac{1-p_o}{1-p_e} \\
 && &p_e=\sum_{c=1}^{C}\frac{n_c^{pred}}{N}\frac{n_c^{true}}{N}
 \end{align}
-$
-{% endcq %}
+$$
+
 
 - $p_o$ is the accuracy
 - $p_e$ is the hypothetical probability of chance agreement
@@ -300,8 +300,8 @@ which means $L(\hat w_0,\hat w_1)$ is minimized (残差最小).
     - where $w_0, w_1,\cdots, w_p$ are <font color=red>regression coefficients</font>, $\textbf{x} = (x_1,\cdots, x_p)^T$ is the input vector whose components are independent variables or attribute values, $\epsilon \thicksim \mathcal N(0, σ^2)$ is the noise.
     - For the size n samples $\{(\textbf{x}_i, y_i)\}$, let $\textbf{y} = (y_1, \cdots , y_n)^T$ be the response or dependent variables, $\textbf{w} = (w_0, w_1, \cdots, w_p)^T$,  we construct a matrix $\textbf{X}=[\textbf{1}_n, (\textbf{x}_1, \cdots,\textbf{x}_n)^T]\in \mathbb R^{n \times(p+1)}$ , and $\textbf{\varepsilon}=(\epsilon_1,\cdots,\epsilon_n)^T \thicksim \mathcal N(\textbf{0},\sigma^2\textbf{l}_n)$ 
 
-{% cq %}
-$
+
+$$
 \begin{align}
 &\textbf{y}=\textbf{X}\textbf{w} + \varepsilon\\ \\
 &\textbf{X}=
@@ -312,8 +312,8 @@ $
 1 & x_{n1} & \cdots & x_{np}
 \end{pmatrix}
 \end{align}
-$
-{% endcq %}
+$$
+
 
 
 
@@ -324,11 +324,11 @@ $
 - From geometry aspect, we should **minimize the residual sum-of-square (残差平方和)**: <br>$\text{RSS}(\textbf{w})=\sum_{i=1}^{n} (y_i-w_0-w_1x_1-\cdots-w_px_p)^2=\|\textbf{y} - \textbf{X} \textbf{w}\|_{2}^2$
     - When $\textbf{X}^T\textbf{X}$ is invertible, the **minimizer** $\hat{\textbf{w}}$ satisfy :  （可证明 $\hat w$ 是无偏估计）
 
-{% cq %}
-$
+
+$$
 \nabla_{\textbf{w}}\text{RSS}(\hat{\textbf{w}})=0 \Rightarrow \hat{\textbf{w}}=(\textbf{X}^T \textbf{X})^{-1}\textbf{X}^T \textbf{y}
-$
-{% endcq %}
+$$
+
 
 - - Then prediction $\hat{\textbf{y}}=\textbf{X}(\textbf{X}^T \textbf{X})^{-1}\textbf{X}^T \textbf{y}= \textbf{P} \textbf{y}$ is a projection of $\textbf{y}$ onto the linear space spanned by the column vectors of $\textbf{X}$; (As Pic 15 show)
     - $\textbf{P}=\textbf{X}(\textbf{X}^T \textbf{X})^{-1}\textbf{X}^T$ is the projection matrix satisfying $\textbf{P}^2 = \textbf{P}$ <font color=green>(Recall: Linear Algebra)</font>
@@ -374,12 +374,12 @@ $
 - Bias (偏差): $\text{Bias}(\hat f(\textbf{x}))=\text{E}_\text{train}\hat f(\textbf{x})-f(\textbf{x})$ , average **accuracy** of prediction for the model (deviation from the truth)
 - Variance (方差): $\text{Var}(\hat f(\textbf{x}))=\text{E}_\text{train}(\hat f(\textbf{x})-\text{E}_\text{train}\hat f(\textbf{x}))^2$ , **variability** of the model prediction due to different data set (stability)
 
-{% cq %}
-$
+
+$$
 \color{red}
 \text{E}_\text{train}\text{R}_\text{exp}(\hat f(\textbf{x}))=\text{E}_\text{train}\text{E}_\text{P}[(y-\hat f(\textbf{x}))^2|\textbf{x}] = \underbrace{\text{Var}(\hat f(\textbf{x}))}_{\text{variance}}+\underbrace{\text{Bias}^2(\hat f(\textbf{x}))}_{\text{bias}}+\underbrace{\sigma^2}_{\text{noise}}
-$
-{% endcq %}
+$$
+
 
 <div><img src="bd19.png" style="zoom:80%"></div>
 
@@ -433,11 +433,11 @@ where we have used the fact that $E_{ \text{train}} y_{i} = f(\textbf{x}_{i})$ a
 
 - Add a penalty term, in general $l_q$ - norm
 
-{% cq %}
-$
+
+$$
 \sum_{i=1}^{n}(y_i-w_0-w_1x_1-\cdots-w_px_p)^2+\lambda \|\textbf{w}\|^q_q=\|\textbf{y}-\textbf{X}\textbf{w}\|^2+\lambda \|\textbf{w}\|^q_q
-$
-{% endcq %}
+$$
+
 
 - By arranging $\lambda$ , we can correct the overfitting (bias inc. & var dec.)
 - `q = 2` for Ridge Regression & `q = 1` for LASSO Regression
@@ -490,9 +490,9 @@ Two Rpoperties :
 </table>
 
 {%cq%}
-$
+$$
 \hat w_i^{\text{lasso}} = (|\hat w^{OLS}_i| − \lambda)+\text{sign}(\hat w^{OLS}_i)
-$
+$$
 {%endcq%}
 
 - Solving LASSO by **LARS** (最小角回归算法)
@@ -644,9 +644,9 @@ $$
 - For the decision boundary between class $k$ and $l$, the **log-ratio** of their posteriors (后验) $P(Y|X)$ is
 
 {%cq%}
-$
+$$
 \log{\frac{P(Y=k|\textbf{X}=\textbf{x})}{P(Y=l|\textbf{X}=\textbf{x})}}=\log{\frac{\pi_k}{\pi_l}}-\frac{1}{2}(\mu_k+\mu_l)^T\Sigma_k^{-1}(\mu_k-\mu_l)+\textbf{x}^T \Sigma^{-1}(\mu_k-\mu_l)
-$
+$$
 {%endcq%}
 
 1. From log-ratio, we can get <font color=red>Linear discriminant functions</font>(e.g. for class $k$) : $\delta_k(\textbf{x})=\textbf{x}^T\Sigma^{-1}\mu_k-\frac{1}{2}\mu_k^T\Sigma^{-1}\mu_k+\log\pi_k$ 
@@ -664,9 +664,9 @@ $
 - LDA rule classifies to **class 2** if
 
 {%cq%}
-$
+$$
 (\textbf{x}-\frac{\hat\mu_1+\hat\mu_2}{2})^T \Sigma^{-1}(\hat\mu_2-\hat\mu_1)+\log{\frac{\hat\pi_2}{\hat\pi_1}}\gt 0
-$
+$$
 {%endcq%}
 
 - Discriminant direction : $\beta=\Sigma^{-1}(\hat\mu_2-\hat\mu_1)$ 
@@ -716,9 +716,9 @@ $$
 > Find $\textbf{W}=\{w^{(0)},w^{(1)},...,w^{(n)}\}$ with lowest loss function
 
 {%cq%}
-$
+$$
 \textbf{W}^{\ast}=\underset{\textbf{W}} {\arg\min} \frac{1}{n}\sum_{i=1}^{n}L(f(x^{(i)};\textbf{W}),y^{(i)})=\underset{\textbf{W}} {\arg\min}\ C(\textbf{W})
-$
+$$
 {%endcq%}
 
 - But for most cases, we should calculate <font color=red>gradient</font> to find $\textbf{W}^{\ast}$ 
@@ -797,12 +797,12 @@ $
 - <font color=red>Dual Optimization: </font>
 
 {%cq%}
-$
+$$
 \begin{align}
 &\min_\alpha\frac{1}{2}\sum_i\sum_j\alpha_i\alpha_jy_iy_j(\textbf{x}_i^T \textbf{x}_j)-\sum_i\alpha_i, \\
 &\text{s.t. }\alpha_i\ge0,\ i=1,...,n,\ \sum_i\alpha_iy_i=0
 \end{align}
-$
+$$
 {%endcq%}
 
 
@@ -814,13 +814,13 @@ $
 - Three more conditions from the equivalence of primal and minimax problems
 
 {%cq%}
-$
+$$
 \left\{ \begin{array}{l}
 \alpha_i^{\ast}\ge 0\\
 y_i((\textbf{w}^{\ast})^T \textbf{x}_i+b^{\ast})-1 \ge 0\\
 \alpha_i^{\ast}[y_i((\textbf{w}^{\ast})^T \textbf{x}_i+b^{\ast})-1]=0
 \end{array}\right.
-$
+$$
 {%endcq%}
 
 - These together with two zero derivative conditions form KKT conditions
@@ -830,9 +830,9 @@ $
 - More stable solution : 
 
 {%cq%}
-$
+$$
 \color{red} b=\frac{1}{|S|}\sum_{s\in S}\left(y_s-\sum_{i\in S}\alpha_i y_i \textbf{x}^T_i\textbf{x}_s\right)
-$
+$$
 {%endcq%}
 
 
@@ -844,23 +844,23 @@ $
 - Primal problem :
 
 {%cq%}
-$
+$$
 \begin{align}
 &\underset{\textbf{w}, b} \min \frac{1}{2}\|\textbf{w}\|_2^2+C\sum_{i=1}^{n}\xi_i\\
 &\text{s.t. }y_i(\textbf{w}^T\textbf{x} + b)\ge 1-\xi_i,\ \xi_i \ge 0,\ i=1,...,n
 \end{align}
-$
+$$
 {%endcq%}
 
 - Similar derivation to dual problem : (Difference: add the error coe $C$ as a bound)
 
 {%cq%}
-$
+$$
 \begin{align}
 &\min_{\alpha}\frac{1}{2}\sum_i \sum_j \alpha_i \alpha_j y_i y_j (\textbf{x}_i^T \textbf{x}_j)-\sum_i \alpha_i \\
 &\text{s.t. }0\le \alpha_i \le C,\ i=1,...,n,\ \sum_i\alpha_iy_i=0
 \end{align}
-$
+$$
 {%endcq%}
 
 

@@ -238,11 +238,11 @@ description: >-
 
 - A Search Operator generate a new solution based on previous ones.
 
-{%cq%}
-$
+
+$$
 \phi : x\to x',\forall x,x' \in \mathcal{X}
-$
-{%endcq%}
+$$
+
 
 > Now we use continuous case as an example.
 
@@ -266,15 +266,15 @@ $
 > 
 > 该优化方法需要根据实际情况调整超参数：初始温度 $T_0$，结束温度 $T_t$，和温度下降率 $\alpha$。
 
-{%cq%}
-$
+
+$$
 p=\left\{
 \begin{array}{cl}
 &1 &\text{if } f(x_i) \lt f(x_i') \\
 &\exp{-\frac{f(x_i)-f(x_i')}{T}} &\text{if } f(x_i) \lt f(x_i')
 \end{array}\right.
-$
-{%endcq%}
+$$
+
 
 ```python
 Set T(0), T(t), alpha
@@ -327,11 +327,11 @@ return x
 
 - Seeking a good distribution: maximize the following “objective function”:
 
-{%cq%}
-$
+
+$$
 \mathcal{J}=\int f(x)p(x|\theta_{1}) dx
-$
-{%endcq%}
+$$
+
 
 - where $p(x|\theta_{1})$ is prob density function parameterized by $\theta_{1}$
 - Using "Population" help making objective function "smooth"
@@ -341,11 +341,11 @@ $
 - Suppose we now converge to some (global or local) optimum
 - If run the algorithm again, we hope the algorithm (i.e., the distribution corresponding to the final population) <font color=red>converge to a different optimum</font> (and thus a different PDF).
 
-{%cq%}
-$
+
+$$
 \mathcal{J}= \sum_{i=1}^{\lambda} \int f(x)p(x|\theta_{i}) dx - \sum_{i=1}^{\lambda} \sum_{j=1}^{\lambda} C(\theta_{i}, \theta_{j})
-$
-{%endcq%}
+$$
+
 
 - where $C(\theta_{i},\theta_{j})$ is similarity of the two PDFs [概率密度分布]
 
@@ -392,15 +392,15 @@ $
 
 - consider the ubiquitous (普遍的) optimization problems:
 
-{%cq%}
-$
+
+$$
 \begin{array}{ll}
 &\text{maximize} &f(x) \\
 &\text{subject to:} &g_i(x)\le 0,\ i=1\cdots m \\
 & &h_j(x)=0,\ j=1\cdots p
 \end{array}
-$
-{%endcq%}
+$$
+
 
 - What is "problem characteristic"? Most basically:
 	- What is $x$ ?
@@ -414,11 +414,11 @@ $
 - Suppose the objective function $f(x_1 , y_1, x_2, y_2, x_3, y_3)$ is continuous and differentiable (thus the gradient could be calculated)
 - Compute:
 
-{%cq%}
-$
+
+$$
 \nabla f=\left( \large{\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial y_1}, \frac{\partial f}{\partial x_2}, \frac{\partial f}{\partial y_2}, \frac{\partial f}{\partial x_3}, \frac{\partial f}{\partial y_3}} \right)
-$
-{%endcq%}
+$$
+
 
 - to increase/reduce $f$, e.g., by $x \leftarrow x + \alpha \nabla f(x)$ [梯度下降]
 
@@ -429,14 +429,14 @@ $
 - The objective function is a <font color=red>quadratic(二次) function</font> of $x$
 - The constraints are linear functions of $x$
 
-{%cq%}
-$
+
+$$
 \begin{array}{ll}
 & &\min f(x)=q^{T}x + \frac{1}{2}x^{T}Qx \\
 &\text{s.t.} & Ax = a,\ Bx \le b,\ x\ge 0 \\
 \end{array}
-$
-{%endcq%}
+$$
+
 
 - When there is **no constraint**, we can solve this problem by differenctiation. ($f'(x)=0$)
 - But when there are constraints, search is still needed (<font color=green>Recall:</font> Lagrange multiplier)
@@ -630,14 +630,14 @@ def min_value(state, alpha, beta):
 - Classify a data to the class with the highest posterior probability
 - <font color=dodgerblue>Assumption:</font> data follows independent identically distribution
 
-{%cq%}
-$
+
+$$
 \begin{array}{c}
 &P(w_j|x)=\frac{p(x|w_j)p(w_j)}{p(x)} \\
 &P(w_2|x)\gt P(w_1|x) \Leftrightarrow \ln{p(x|w_2)}+\ln{p(w_2)} \gt \ln{p(x|w_1)}+\ln{p(w_1)} \\
 \end{array}
-$
-{%endcq%}
+$$
+
 
 - **"Parametric"**: the assumption on the probability density function (PDF).
 - Parametric methods usually do not involve parameters to fine-tune, while Nonparametric methods usually do.
@@ -704,8 +704,8 @@ $
 - And the covariance within two classes are $w^T\Sigma_0 w$, $w^T\Sigma_1 w$
 - Trying to make projections of data in the same class closer, and in different classes farther, we describe the objective function $J$ in this way:
 
-{%cq%}
-$
+
+$$
 \begin{array}{rcl}
 \text{define within-class scatter matrix:} &\mathbf{S_w}&=\mathbf{\Sigma_0}+\mathbf{\Sigma_1} \\
 &&=\sum_{x\in X_0}(\mathbf{x}-\mathbf{\mu_0})^T+\sum_{x\in X_1}(\mathbf{x}-\mathbf{\mu_1})^T \\
@@ -714,14 +714,14 @@ $
 &&=\large\frac{w^T (\mathbf{\mu_0}-\mathbf{\mu_1})(\mathbf{\mu_0}-\mathbf{\mu_1})^T w}{w^T (\Sigma_0+\Sigma_1)w} \\
 &&=\large\frac{w^T \mathbf{S_b} w}{w^T \mathbf{S_w} w}
 \end{array}
-$
-{%endcq%}
+$$
+
 
 - So we get what LDA wants to maximize (also called **generalized Rayleigh quotient**)
 - then we're going to optimize this function to obtain an easy form:
 
-{%cq%}
-$
+
+$$
 \begin{array}{rl}
 &\min_{\mathbf{w}} -\mathbf{w}^T\mathbf{S_b} \mathbf{w} \\
 &s.t.\ \mathbf{w}^T\mathbf{S_w} \mathbf{w}=1 \\
@@ -730,8 +730,8 @@ $
 \text{Let }&\mathbf{S_b}\mathbf{w} = \lambda (\mathbf{\mu_0}-\mathbf{\mu_1}) \\
 \therefore&\mathbf{w}=\mathbf{S_w}^{-1} (\mathbf{\mu_0}-\mathbf{\mu_1})
 \end{array}
-$
-{%endcq%}
+$$
+
 
 > In practice, it's more likely to represent $\mathbf{S_w}$ as form of Singularity Decomposition: $\mathbf{U}\mathbf{\Sigma}\mathbf{V}^T$.
 > 
@@ -777,11 +777,11 @@ $
 
 - Optimize weights to minimize the Loss function
 
-{%cq%}
-$
+
+$$
 J(w)=\frac{1}{2} \sum_{k=1}^{c}(y_k-z_k)^2=\frac{1}{2} ||\mathbf{y}-\mathbf{z} ||^{2}
-$
-{%endcq%}
+$$
+
 
 - Training algorithm: gradient descent, with Back Propagation(BP) algorithm as a representative example.
 
@@ -789,19 +789,19 @@ $
 
 - Update weights between output and hidden layers
 
-{%cq%}
-$
+
+$$
 \nabla w_{ji}=-\eta\frac{\partial{J}}{ \partial{w_{ji}}}
-$
-{%endcq%}
+$$
+
 
 - Update weights between input and hidden layers
 
-{%cq%}
-$
+
+$$
 \frac{\partial{J}}{ \partial{w_{ki}}}=\frac{\partial{J}}{ \partial{net_{k}}} \cdot \frac{ \partial{net_{k}}}{ \partial{w_{ki}}} = -\delta_{k}\frac{ \partial{net_{k}}}{ \partial{w_{ki}}}
-$
-{%endcq%}
+$$
+
 
 - Apply in BP algorithm
 	- initial $D=\{ (\mathbf{x_1},y_1), \cdots, (\mathbf{x_m}, y_m) \}$ and learning rate $\eta$
@@ -928,14 +928,14 @@ end
 - Idea: gathering similar data into one class
 	- e.g. Objective Function (to minimize distance)
 
-{%cq%}
-$
+
+$$
 \begin{array}{}
 J= \underset{i=1}{\overset{k}{\sum}} \underset{x \in D_i }{\sum} || \mathbf{x} - \mathbf{m_i} ||^2 \\
 i.e. J = \frac{1}{2} \underset{i=1}{\overset{k}{\sum}} n_i \underset{x,x' \in D_i }{\sum} || \mathbf{x}-\mathbf{x'} ||^2
 \end{array}
-$
-{%endcq%}
+$$
+
 
 **Naive Approach**
 
@@ -1068,11 +1068,11 @@ $
 > <br/>
 > <font color=green>A: Pearson Correlation Coefficient, a normalized measurement of the covariance</font>
 
-{%cq%}
-$
+
+$$
 c_{u_1u_2}=\large\frac{\underset{i\in M}{\sum} (r_{u_1,i} - \bar{r}_{u_1}) (r_{u_2,i} - \bar{r}_{u_2}) }{\sqrt{\underset{i\in M}{\sum} (r_{u_1,i} - \bar{r}_{u_1})^2} \sqrt{\underset{i\in M}{\sum} (r_{u_2,i} - \bar{r}_{u_2})^2}}
-$
-{%endcq%}
+$$
+
 
 - An example of user’s Pearson Correlation Coefficient
 - $M$: The item set
@@ -1093,21 +1093,21 @@ $
 
 - A matrix $R\in \mathbb{R}^{n\times m}$ approximate to the product of two matrix:
 
-{%cq%}
-$
+
+$$
 R\approx PQ^T ,\ P\in \mathbb{R}^{n\times d},\ Q\in \mathbb{R}^{m\times d}
-$
-{%endcq%}
+$$
+
 
 - Representing the user and item as a $d$-dimension vector
 - Matrix $P$, $Q$ consist of the representation vectors of all the users and items.
 - The low-dimension vector representation is also called as **embedding vector**.
 
-{%cq%}
-$
+
+$$
 \underset{P,Q}{\min} \underset{r_{u,i} \in R'}{\sum} ||r_{u,i} - r'_{u,i} ||,\ \text{where } r'_{u,i} = P_u Q_i^T
-$
-{%endcq%}
+$$
+
 
 - In this "objective function", $P_u$ is user $u$'s embedding vector, $Q_i$ is item $i$'s embedding vector
 	- $r'_{u,i} = f(P_u, Q_i) = P_uQ_i^T$ is a simple example for this function.

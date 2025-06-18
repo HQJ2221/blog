@@ -66,14 +66,14 @@ description: >-
 
 向量 $b$ 在向量 $a$ 上的投影表示为：$proj_a:b\mapsto p=\hat xa$
 
-{%cq%}
-$
+
+$$
 \begin{array}{l}
 &0=a^T(b-\hat{x}a)\Rightarrow \hat{x}=\frac{a^Tb}{a^T a} \\
 \therefore &proj_a(b)=\frac{aa^T}{a^Ta}\cdot b
 \end{array}
-$
-{%endcq%}
+$$
+
 
 所以，投影矩阵为 $P=\frac{aa^T}{\|a\|^2}$
 
@@ -96,26 +96,26 @@ $
   1. 求投影（正交化）
   2. 求标准基（单位化）
 
-{%cq%}
-$
+
+$$
 \begin{array}{l}
 &A_j=a_j-(q_1^T a_j)q_1-(q_2^T a_j)q_2--\cdots -(q_{j-1}^T a_j)q_{j-1} \\
 &q_j=\frac{A_j}{\|A_j\|}
 \end{array}
-$
-{%endcq%}
+$$
+
 
 ## QR 分解（重点）
 
 $A=QR$
 
-{%cq%}
-$
+
+$$
 \begin{array}{l}
 A= \left[\begin{array}{c} a&b&c \end{array}\right]=\left[\begin{array}{c} q_1 & q_2 & q_3 \end{array}\right]\left[\begin{array}{c} q_1^Ta & q_1^Tb & q_1^Tc \\ & q_2^Tb & q_2^Tc \\ && q_3^Tc \end{array}\right]=QR
 \end{array}
-$
-{%endcq%}
+$$
+
 
 > $Q$ 可通过 Gram-Schmidt 过程求得，$R$ 通过 $R=Q^TA$ 求得。
 
@@ -135,13 +135,13 @@ $
 
 定义：设 $A=[a_{ij}]_{n\times n}$ 为 $n$ 阶方阵：
 
-{%cq%}
-$
+
+$$
 \begin{array}{l}
 f(\lambda)=|A-\lambda I|=\left|\begin{array}{c} a_{11}-\lambda & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22}-\lambda & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn}-\lambda \end{array}\right|
 \end{array}
-$
-{%endcq%}
+$$
+
 
 为 $A$ 的特征多项式。
 
@@ -220,8 +220,8 @@ $
 
 证明：令 $V=\mathbb{R}^2$ ，$T$ 为 $V$ 的一个线性变换；又设另一组基 $\{w_1,w_2\}$，证明如下
 
-{%cq%}
-$
+
+$$
 \begin{array}{l}
 &T(v_1)=a_{11}v_1+a_{12}v_2\ \ \ \ T(v_2)=a_{21}v_1+a_{22}v_2 \\
 \therefore &\left[\begin{array}{c}Tv_1&Tv_2\end{array}\right]=\left[\begin{array}{c}v_1&v_2\end{array}\right]\left[\begin{array}{c}a_{11}&a_{21} \\ a_{12}&a_{22}\end{array}\right]=\left[\begin{array}{c}v_1&v_2\end{array}\right]A \\
@@ -231,8 +231,8 @@ $
 \text{also }\because &\left[\begin{array}{c}Tw_1&Tw_2\end{array}\right]=\left[\begin{array}{c}w_1&w_2\end{array}\right]B \\
 \therefore &MB=AM \Rightarrow B=M^{-1}AM\text{(相似)}
 \end{array}
-$
-{%endcq%}
+$$
+
 
 
 
@@ -248,11 +248,11 @@ $
 
 ## 二次型
 
-{%cq%}
-$
+
+$$
 f(x,y)=ax^2+2bxy+cy^2
-$
-{%endcq%}
+$$
+
 
 - 当且仅当 $ac\gt b^2$ 且 $a\gt 0(a\lt 0)$ 时，$f(x,y)$ 为正定（负定），存在唯一最小（最大）值【定点】
 - 若 $ac=b^2$，则根据 $a$ 的值称为半正定/半负定，存在不唯一最小（最大）值
@@ -262,11 +262,11 @@ $
 
 二次型的另一种表示：($A$ 是实对称矩阵)
 
-{%cq%}
-$
+
+$$
 ax^2+2bxy+cy^2=\left[\begin{array}{c}x&y\end{array}\right]\left[\begin{array}{c}a&b \\ b&c\end{array}\right]\left[\begin{array}{c}x \\ y\end{array}\right]=x^TAx
-$
-{%endcq%}
+$$
+
 
 > 正定二次型所对应矩阵 $A$ 为正定矩阵 
 
@@ -296,11 +296,11 @@ $
 
 思路：任意 n 阶实对称矩阵 A，都存在可逆矩阵 C，使得 $C^TAC=diag(d_1,d_2,\cdots,d_n)$。通过对矩阵 $A$ 的初等行/列变换，可以得到合同变换矩阵 $C$ 和变换后的矩阵 $D=C^TAC$
 
-{%cq%}
-$
+
+$$
 \left[\begin{array}{c}C^T&0 \\ 0&I\end{array}\right]\left[\begin{array}{c}A \\ I\end{array}\right]C=\left[\begin{array}{c}C^TAC \\ C\end{array}\right]=\left[\begin{array}{c}D \\ C\end{array}\right]
-$
-{%endcq%}
+$$
+
 
 由此可见，用正交变换法得到的标准型并不唯一（参考主轴定理）。标准型不唯一，但是标准型的正负号个数不变。
 
@@ -314,11 +314,11 @@ $
 
 定义：可对任意矩阵进行奇异值分解（SVD）：
 
-{%cq%}
-$
+
+$$
 A=U\Sigma V^T
-$
-{%endcq%}
+$$
+
 
 其中，$\Sigma$ 为 $m\times n$ 对角阵（非方阵），其对角线处非零元素记为 $\sigma_1,\sigma_2.\cdots,\sigma_r$ ，这些元素称为 $A$ 的奇异值，也是 $AA^T$ 的特征值的平方根。
 
