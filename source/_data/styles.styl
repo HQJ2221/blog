@@ -1,0 +1,82 @@
++tablet-mobile() {
+  .sidebar-toggle, .sidebar {
+    display: none;
+  }
+}
+
+body {
+  background: url(/images/star.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.main-inner > .sub-menu,
+.main-inner > .post-block,
+.main-inner > .tabs-comment,
+.main-inner > .comments,
+.main-inner > .pagination {
+  background: rgba(245, 245, 245, 0.90);
+}
+
+// 图片圆角
+.post-body img {
+  border-radius: 1em 
+}
+
+// 关闭表格隔行变色效果，所有行设置为白色背景
+table tr {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+// 覆盖Next主题的隔行变色设置
+table tr:nth-child(even),
+table tr:nth-child(2n) {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+// 归档页 title 添加选中的加粗放大效果和动画
+.posts-collapse .post-content .post-title {
+  transition: font-size 0.05s ease, font-weight 0.05s ease; /* 添加过渡动画 */
+}
+
+.posts-collapse .post-content .post-title:hover {
+  font-weight: bold;
+  font-size: 1.1em; /* 放大字体大小，1.1em 表示放大 10% */
+}
+
+// 去除归档页的默认文字内容
+.posts-collapse .post-content .collection-title {
+  display: none !important;
+}
+
+// 竖线是这个 before 元素控制的，改细，同时稍微一动位置与标题栏前的圆心对齐
+// 左侧的竖线原来太抢眼了，这里弱化竖线的视觉效果
+.posts-collapse .post-content::before {
+  background: var(--archive-post-content-before-color)
+  margin-left: -0.5px
+  top: 1em
+  width: 1px
+}
+
+// 年份缩进，看起来就更有层次感
+.posts-collapse .post-content .collection-year {
+  margin: 40px 0 0 0;
+}
+
+// 去掉掉年份前的圆点
+.posts-collapse .post-content .collection-year::before {
+  display: none;
+}
+
+
+
+// 文档标题字体整体放大，强调一下视觉效果
+.posts-collapse .post-content .post-header{
+  font-size: 1.1em
+}
+// 文档标题前的日期字体方法，原来其实是个缩小效果，这么写之后就取消了缩小效果
+.posts-collapse .post-content .post-meta-container {
+  font-size: inherit; /* or use initial or unset */
+}

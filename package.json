@@ -1,0 +1,40 @@
+{
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "hexo server"
+  },
+  "hexo": {
+    "version": "7.2.0"
+  },
+  "dependencies": {
+    "hexo-abbrlink": "^2.2.1",
+    "hexo-asset-image": "github:CodeFalling/hexo-asset-image",
+    "hexo-deployer-git": "^4.0.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index-pin-top": "^0.2.2",
+    "hexo-generator-searchdb": "^1.4.1",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-helper-live2d": "^3.1.1",
+    "hexo-next-title": "github:theme-next/hexo-next-title",
+    "hexo-related-popular-posts": "^5.0.1",
+    "hexo-render-pug": "^2.1.4",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-jade": "^0.3.0",
+    "hexo-renderer-kramed": "^0.1.4",
+    "hexo-renderer-mathjax": "^0.6.0",
+    "hexo-renderer-sass": "^0.5.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "hexo-tag-cloud": "2.0.*",
+    "hexo-theme-landscape": "^1.0.0",
+    "hexo-theme-next": "^8.20.0",
+    "hexo-theme-yun": "^1.10.11",
+    "live2d-widget-model-tororo": "^1.0.5"
+  }
+}
